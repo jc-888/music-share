@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 
-export default class SongForm extends Component {
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
+
+const getVideoId = require('get-video-id')
+
+class SongForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-       data: [],
-       editting: false,
        id: "",
        song_name: "",
        artist: "",
@@ -20,21 +23,36 @@ export default class SongForm extends Component {
     this.setState({ [event.target.id]: event.target.value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    if (this.state.editting) {
-       this.handleEditData();
-       this.clearForm();
-    } else {
-       this.addData();
-       this.clearForm();
-    }
+
+    const {
+      song_name,
+      artist,
+      videoid,
+      contributor,
+      likes,
+      dislikes
+    } = this.state;
+    
+    const vidId = getVideoId(videoid).id
+
+    await this.props.createSongMutation({
+      variables: {
+        song_name,
+        artist,
+        videoid: vidId,
+        contributor,
+        likes,
+        dislikes
+      }
+    })
   };
 
   render() {
     return (
       <div className="form">
-        <h3>Music Form</h3>
+        <h3>Contribute Music</h3>
         <form onSubmit={this.handleSubmit}>
           <input
               type="text"
@@ -65,10 +83,40 @@ export default class SongForm extends Component {
               placeholder="Contributor"
           />
           <button type="submit" className="submit-button">
-              <h5>Update Song</h5>
+              <h5>Add</h5>
           </button>
         </form>
       </div>
     )
   }
 }
+
+const MUSIC_MUTATION = gql`
+  mutation MusicMutation(
+    $song_name: String!,
+    $artist: String!,
+    $videoid: String!,
+    $contributor: String!,
+    $likes: Int!,
+    $dislikes: Int!
+  ) {
+    createSong(
+      song_name: $song_name,
+      artist: $artist,
+      videoid: $videoid,
+      contributor: $contributor,
+      likes: $likes,
+      dislikes: $dislikes
+    ) {
+      id
+      song_name
+      artist
+      videoid
+      contributor
+      likes
+      dislikes
+    }
+  }
+`
+
+export default graphql(MUSIC_MUTATION, {name: 'createSongMutation'})(SongForm);
