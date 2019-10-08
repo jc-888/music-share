@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
 
 body {
-  background-color: #eee1b3;
+  background-color: #c5d5ea;
   color: #2f394d;
   font-family: 'Shadows Into Light', cursive;
 }
@@ -36,7 +36,7 @@ h5 {
 
 button:hover {
   background-color: #330036;
-  color: #eee1b3;
+  color: #c5d5ea;
 }
 
 .main {
@@ -78,12 +78,12 @@ button:hover {
 
 .likebtn:hover {
   background-color: green;
-  color: #eee1b3;
+  color: #c5d5ea;
 }
 
 .dislikebtn:hover {
   background-color: red;
-  color: #eee1b3;
+  color: #c5d5ea;
 }
 
 .delup {
