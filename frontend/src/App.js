@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+
 import SongForm from "./components/SongForm";
+import SongList from "./components/SongList";
+
 import "./App.css";
 
 class App extends Component {
@@ -12,6 +15,7 @@ class App extends Component {
             but without all the <strong>Depression</strong>
         </p>
         <SongForm/>
+        <SongList/>
       </div>
     );
   }
