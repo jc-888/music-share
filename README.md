@@ -10,5 +10,5 @@ Add, promote, and share your favorite music.
 
 #### GraphQL version of a GA Group Project
 
-- [React FrontEnd](https://github.com/jakec888/MusicBook_front_end)
-- [Ruby or Rails BackEnd](https://github.com/jakec888/MusicBook_api)
+- [React Front-End](https://github.com/jakec888/MusicBook_front_end)
+- [Ruby or Rails API Back-End](https://github.com/jakec888/MusicBook_api)
