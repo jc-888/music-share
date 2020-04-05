@@ -8,7 +8,7 @@ Add, promote, and share your favorite music.
 
 ### Description
 
-#### GraphQL version of a GA Group Project
+#### GraphQL version of a previus project
 
 - [React Front-End](https://github.com/jakec888/MusicBook_front_end)
 - [Ruby or Rails API Back-End](https://github.com/jakec888/MusicBook_api)
