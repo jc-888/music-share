@@ -21,6 +21,6 @@
     "mongoose": ">=5.7.5"
   },
   "dependencies": {
-    "apollo-server-express": "^2.9.4"
+    "apollo-server-express": ">=2.14.2"
   }
 }
